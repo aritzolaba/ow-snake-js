@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OW Snake JS</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="stylesheet" href="/snake.css"/>
+</head>
+<body>
+<main>
+    <div class="score">
+        <span>record<span id="record">0</span></span>
+        <span>score<span id="score">0</span></span>
+    </div>
+    <div id="game-over" class="game-over">
+        <span>game over</span>
+        <button type="button" onclick="location.reload();">play again</button>
+    </div>
+    <canvas id="game" width="320" height="240"></canvas>
+</main>
+
+<script src="/snake.js"></script>
+</body>
+</html>
