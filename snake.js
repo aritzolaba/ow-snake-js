@@ -26,10 +26,19 @@ let gameIsPaused = false;
 gameStart();
 
 function createFood() {
-  food = {
-    x: Math.floor(Math.random() * canvas.width / CFG.blockSize) * CFG.blockSize,
-    y: Math.floor(Math.random() * canvas.height / CFG.blockSize) * CFG.blockSize
-  };
+  const positions = [];
+  for (let x = 0; x < canvas.width; x += CFG.blockSize) {
+    for (let y = 0; y < canvas.height; y += CFG.blockSize) {
+      positions.push({ x, y });
+    }
+  }
+
+  snake.forEach(segment => {
+    positions.splice(positions.findIndex(pos => pos.x === segment.x && pos.y === segment.y), 1);
+  });
+
+  const randomIndex = Math.floor(Math.random() * positions.length);
+  food = positions[randomIndex];
 }
 
 function drawActors() {
